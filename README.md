@@ -1,0 +1,2 @@
+This will be a website for Choose Your Own Adventure games. The MVP will be a single game called "Explore the Spooky Forest," which will be a simple game about traveling a dark forest and dealing with the creatures you find there. Players can decide whether to be peaceful or violent when encountering the residents of the forest, which will impact the story in the future.
+The game will also have background images, a sound button, and the option for players to save their progress.
