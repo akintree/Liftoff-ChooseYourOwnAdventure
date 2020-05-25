@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Liftoff_ChooseYourOwnAdventure.Models
 {
-    public class SpookyForest
+    public class Game
     {
-        public string Story { get; set; }
-        public IList<string> Options { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
     }
 }
