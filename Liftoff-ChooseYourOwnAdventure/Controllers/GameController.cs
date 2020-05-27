@@ -10,11 +10,11 @@ using Liftoff_ChooseYourOwnAdventure.Models;
 
 namespace Liftoff_ChooseYourOwnAdventure.Controllers
 {
-    public class SpookyForestController : Controller
+    public class GameController : Controller
     {
         // GET: /<controller>/
-        private readonly GameDbContext context;
-        public SpookyForestController(GameDbContext dbContext)
+        private GameDbContext context;
+        public GameController(GameDbContext dbContext)
         {
             context = dbContext;
         }
@@ -24,7 +24,7 @@ namespace Liftoff_ChooseYourOwnAdventure.Controllers
             //TODO: retrieve game from the list and pass it into the View
             //the View will display the Story - some text and a list of choices
             //since each View will have a different Story, will I need a different Controller for each page of the game?
-            return View(games[0]);
+            return View(games);
         }
 
         //TODO: find a way to add items to the Story privately/internally - I don't want the player to be able to do this
