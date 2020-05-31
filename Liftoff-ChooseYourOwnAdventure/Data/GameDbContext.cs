@@ -10,5 +10,11 @@ namespace Liftoff_ChooseYourOwnAdventure.Data
     public class GameDbContext : DbContext
     {
         public DbSet<Game> Games { get; set; }
+        public DbSet<Storyboard> Storyboards { get; set; }
+
+        public GameDbContext(DbContextOptions<GameDbContext> options) : base(options)
+        {
+        }
+
     }
 }

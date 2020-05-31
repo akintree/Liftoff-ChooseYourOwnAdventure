@@ -12,6 +12,7 @@ using Liftoff_ChooseYourOwnAdventure.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Liftoff_ChooseYourOwnAdventure.Models;
 
 namespace Liftoff_ChooseYourOwnAdventure
 {
@@ -34,6 +35,9 @@ namespace Liftoff_ChooseYourOwnAdventure
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddDbContext<GameDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +56,9 @@ namespace Liftoff_ChooseYourOwnAdventure
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            //initializing SeedData
+            SeedData.Initialize(app.ApplicationServices);
 
             app.UseRouting();
 

@@ -7,9 +7,8 @@ namespace Liftoff_ChooseYourOwnAdventure.Models
 {
     public class Game
     {
-        public string Name { get; set; }
         public int ID { get; set; }
-
-        public List<string> Story { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
     }
 }
