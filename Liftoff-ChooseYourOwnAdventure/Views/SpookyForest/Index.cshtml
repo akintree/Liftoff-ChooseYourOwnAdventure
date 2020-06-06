@@ -1,19 +1,18 @@
-﻿@*
-    //since I am still figuring out the best way to add/edit the Story attribute in Game, I'm just using placeholder text for now
-    //I'll replace this with iterations of Story, and use asp in the form, but hopefully it will still look the same
-*@
-@{
-    <p>The forest is dark, letting just enough moonlight in for you to see the trail ahead of you. The trees are enormous, stretching far above your head, and they rustle softly in the wind.
-    You have been walking for some time now, listening to the sounds of the forest, when you come across a little man with a little pack on his back and a silver knife strapped to his leg.</p>
-    <p>You:</p>
-    <form method="post">
-        <div class="form-group">
-            <input type="radio" id="forestChoice1" value="Say hello">
-            <label>Say hello</label>
-            <br />
-            <input type="radio" id="forestChoice1" value="Attack" />
-            <label>Attack</label>
-        </div>
-        <input type="submit" value="Next"/>
-    </form>
-}
+﻿@model Liftoff_ChooseYourOwnAdventure.Models.Storyboard
+
+<p>
+    The forest is dark, letting just enough moonlight in for you to see the trail ahead of you. The trees are enormous, stretching far above your head, and they rustle softly in the wind.
+    You have been walking for some time now, listening to the sounds of the forest, when you come across a little man with a little pack on his back and a silver knife strapped to his leg.
+</p>
+<p>You:</p>
+<form method="post">
+    <div class="form-group">
+        <input type="radio" id="@Model.NextStoryboardID1" value="@Model.Option1">
+        <label>@Model.Option1</label>
+        <br />
+        <input type="radio" id="@Model.NextStoryboardID2" value="@Model.Option2" />
+        <label>@Model.Option2</label>
+    </div>
+    <input type="submit" value="Next" />
+</form>
+

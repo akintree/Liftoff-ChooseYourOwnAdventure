@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Liftoff_ChooseYourOwnAdventure.Models;
+using Liftoff_ChooseYourOwnAdventure.Data;
 
 namespace Liftoff_ChooseYourOwnAdventure.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private GameDbContext context;
+        public HomeController(GameDbContext dbContext)
         {
-            _logger = logger;
+            context = dbContext;
         }
+
+        // public HomeController(ILogger<HomeController> logger)
+        // {
+        //   _logger = logger;
+        //}
 
         public IActionResult Index()
         {
-            return View();
+            List<Game> games = context.Games.ToList();
+
+            return View(games);
         }
 
         public IActionResult Privacy()

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Liftoff_ChooseYourOwnAdventure.Models;
 using Liftoff_ChooseYourOwnAdventure.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Liftoff_ChooseYourOwnAdventure
 {
@@ -15,25 +16,24 @@ namespace Liftoff_ChooseYourOwnAdventure
     {
         public static void Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
-            //var host = new WebHostBuilder();
+            var host = CreateHostBuilder(args).Build();
 
-            //using (var scope = host.Services.CreateScope())
-            //{
-            //    var services = scope.ServiceProvider;
-            //    var context = services.GetRequiredService<GameDbContext>();
-            //    try
-            //    {
-            //        SeedData.Initialize(services);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        var logger = services.GetRequiredService<ILogger<Program>>();
-            //        logger.LogError(ex, "An error occurred seeding the DB.");
-            //    }
-            //}
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
 
-            //host.Run();
+                try
+                {
+                    SeedData.Initialize(services);
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred seeding the DB.");
+                }
+            }
+
+            host.Run();
         }
 
 

@@ -57,8 +57,6 @@ namespace Liftoff_ChooseYourOwnAdventure
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            //initializing SeedData
-            SeedData.Initialize(app.ApplicationServices);
 
             app.UseRouting();
 

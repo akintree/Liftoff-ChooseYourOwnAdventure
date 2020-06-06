@@ -20,9 +20,9 @@ namespace Liftoff_ChooseYourOwnAdventure.Controllers
         }
         public IActionResult Index()
         {
-            List<Game> games = context.Games.ToList();
+            List<Storyboard> storyboards = context.Storyboards.ToList();
 
-            return View(games);
+            return View(storyboards);
         }
     }
 }
