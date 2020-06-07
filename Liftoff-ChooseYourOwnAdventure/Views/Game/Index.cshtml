@@ -1,4 +1,4 @@
-﻿@model Liftoff_ChooseYourOwnAdventure.Models.Storyboard
+﻿@model List<Liftoff_ChooseYourOwnAdventure.Models.Storyboard>
 
 <p>
     The forest is dark, letting just enough moonlight in for you to see the trail ahead of you. The trees are enormous, stretching far above your head, and they rustle softly in the wind.
@@ -7,11 +7,11 @@
 <p>You:</p>
 <form method="post">
     <div class="form-group">
-        <input type="radio" id="@Model.NextStoryboardID1" value="@Model.Option1">
-        <label>@Model.Option1</label>
+        <input type="radio" id="@Model[0].NextStoryboardID1" value="@Model[0].Option1">
+        <label>@Model[0].Option1</label>
         <br />
-        <input type="radio" id="@Model.NextStoryboardID2" value="@Model.Option2" />
-        <label>@Model.Option2</label>
+        <input type="radio" id="@Model[0].NextStoryboardID2" value="@Model[0].Option2" />
+        <label>@Model[0].Option2</label>
     </div>
     <input type="submit" value="Next" />
 </form>

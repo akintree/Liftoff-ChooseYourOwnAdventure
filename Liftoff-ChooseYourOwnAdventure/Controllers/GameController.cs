@@ -21,8 +21,8 @@ namespace Liftoff_ChooseYourOwnAdventure.Controllers
         public IActionResult Index()
         {
             List<Storyboard> storyboards = context.Storyboards.ToList();
-
             return View(storyboards);
+            
         }
     }
 }

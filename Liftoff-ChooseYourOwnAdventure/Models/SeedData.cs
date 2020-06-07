@@ -12,18 +12,18 @@ namespace Liftoff_ChooseYourOwnAdventure.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new ApplicationDbContext(
-                            serviceProvider.GetRequiredService<
-                                DbContextOptions<ApplicationDbContext>>()))
-            {
+            //using (var context = new ApplicationDbContext(
+            //                serviceProvider.GetRequiredService<
+            //                    DbContextOptions<ApplicationDbContext>>()))
+            //{
  
-                if (context.Games.Any())
-                {
-                    return;
-                }
-                context.Games.Add(new Game { Title = "Explore the Spooky Forest", Description = "A short exploration game. What will you see? Who will you meet? What will you become?", FirstStoryBoardID = 1 });
-                context.SaveChanges();
-            }
+            //    if (context.Games.Any())
+            //    {
+            //        return;
+            //    }
+            //    context.Games.Add(new Game { Title = "Explore the Spooky Forest", Description = "A short exploration game. What will you see? Who will you meet? What will you become?", FirstStoryBoardID = 1 });
+            //    context.SaveChanges();
+            //}
 
             using (var context = new ApplicationDbContext(
                             serviceProvider.GetRequiredService<
