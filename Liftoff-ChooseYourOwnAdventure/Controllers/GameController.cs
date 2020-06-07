@@ -13,8 +13,8 @@ namespace Liftoff_ChooseYourOwnAdventure.Controllers
     public class GameController : Controller
     {
         // GET: /<controller>/
-        private GameDbContext context;
-        public GameController(GameDbContext dbContext)
+        private ApplicationDbContext context;
+        public GameController(ApplicationDbContext dbContext)
         {
             context = dbContext;
         }

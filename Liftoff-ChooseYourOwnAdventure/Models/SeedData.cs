@@ -12,32 +12,40 @@ namespace Liftoff_ChooseYourOwnAdventure.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new GameDbContext(
+            using (var context = new ApplicationDbContext(
                             serviceProvider.GetRequiredService<
-                                DbContextOptions<GameDbContext>>()))
+                                DbContextOptions<ApplicationDbContext>>()))
             {
-                //context.Database.EnsureCreated();
-
-                if (!context.Games.Any())
+ 
+                if (context.Games.Any())
                 {
-                    context.Games.Add(new Game { Title = "Explore the Spooky Forest", Description = "A short exploration game. What will you see? Who will you meet? What will you become?" });
+                    return;
                 }
+                context.Games.Add(new Game { Title = "Explore the Spooky Forest", Description = "A short exploration game. What will you see? Who will you meet? What will you become?", FirstStoryBoardID = 1 });
+                context.SaveChanges();
+            }
 
-                if (!context.Storyboards.Any())
+            using (var context = new ApplicationDbContext(
+                            serviceProvider.GetRequiredService<
+                                DbContextOptions<ApplicationDbContext>>()))
+            {
+                if (context.Storyboards.Any())
                 {
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 1, Option1 = "Say hello", NextStoryboardID1 = 2, Option2 = "Attack", NextStoryboardID2 = 3 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 2, Option1 = "Yes", NextStoryboardID1 = 4, Option2 = "No", NextStoryboardID2 = 5 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 3, Option1 = "Back away slowly", NextStoryboardID1 = 7, Option2 = "Attack", NextStoryboardID2 = 8 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 4, NextStoryboardID1 = 6 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 5, Option1 = "Give food", NextStoryboardID1 = 9, Option2 = "Back away slowly", NextStoryboardID2 = 7 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 6 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 7, NextStoryboardID1 = 6 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 8, Option1 = "Yes", NextStoryboardID1 = 10, Option2 = "No", NextStoryboardID2 = 11 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 9, Option1 = "Yes", NextStoryboardID1 = 12, Option2 = "No", NextStoryboardID2 = 6 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 10 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 11 });
-                    context.Storyboards.Add(new Storyboard { StoryboardID = 12 });
+                    return;
                 }
+                context.Storyboards.Add(new Storyboard { ID = 1, Option1 = "Say hello", NextStoryboardID1 = 2, Option2 = "Attack", NextStoryboardID2 = 3 });
+                context.Storyboards.Add(new Storyboard { ID = 2, Option1 = "Yes", NextStoryboardID1 = 4, Option2 = "No", NextStoryboardID2 = 5 });
+                context.Storyboards.Add(new Storyboard { ID = 3, Option1 = "Back away slowly", NextStoryboardID1 = 7, Option2 = "Attack", NextStoryboardID2 = 8 });
+                context.Storyboards.Add(new Storyboard { ID = 4, NextStoryboardID1 = 6 });
+                context.Storyboards.Add(new Storyboard { ID = 5, Option1 = "Give food", NextStoryboardID1 = 9, Option2 = "Back away slowly", NextStoryboardID2 = 7 });
+                context.Storyboards.Add(new Storyboard { ID = 6 });
+                context.Storyboards.Add(new Storyboard { ID = 7, NextStoryboardID1 = 6 });
+                context.Storyboards.Add(new Storyboard { ID = 8, Option1 = "Yes", NextStoryboardID1 = 10, Option2 = "No", NextStoryboardID2 = 11 });
+                context.Storyboards.Add(new Storyboard { ID = 9, Option1 = "Yes", NextStoryboardID1 = 12, Option2 = "No", NextStoryboardID2 = 6 });
+                context.Storyboards.Add(new Storyboard { ID = 10 });
+                context.Storyboards.Add(new Storyboard { ID = 11 });
+                context.Storyboards.Add(new Storyboard { ID = 12 });
+
                 context.SaveChanges();
             }
         }

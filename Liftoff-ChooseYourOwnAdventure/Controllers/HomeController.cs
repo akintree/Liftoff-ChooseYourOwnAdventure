@@ -14,8 +14,8 @@ namespace Liftoff_ChooseYourOwnAdventure.Controllers
     {
         //private readonly ILogger<HomeController> _logger;
 
-        private GameDbContext context;
-        public HomeController(GameDbContext dbContext)
+        private ApplicationDbContext context;
+        public HomeController(ApplicationDbContext dbContext)
         {
             context = dbContext;
         }

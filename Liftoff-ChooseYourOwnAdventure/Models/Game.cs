@@ -10,6 +10,6 @@ namespace Liftoff_ChooseYourOwnAdventure.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public IList<Game> Games { get; set; }
+        public int FirstStoryBoardID { get; set; }
     }
 }

@@ -5,14 +5,13 @@ using System.Threading.Tasks;
 
 namespace Liftoff_ChooseYourOwnAdventure.Models
 {
-    public class Storyboard : Game
+    public class Storyboard
     {
-        public int StoryboardID { get; set; }
+        public int ID { get; set; }
         public string Story { get; set; }
         public string Option1 { get; set; }
         public int NextStoryboardID1 { get; set; }
         public string Option2 { get; set; }
         public int NextStoryboardID2 { get; set; }
-        public IList<Storyboard> Storyboards { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Liftoff_ChooseYourOwnAdventure.Migrations
 {
-    public partial class TableReplacement : Migration
+    public partial class SeedDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
