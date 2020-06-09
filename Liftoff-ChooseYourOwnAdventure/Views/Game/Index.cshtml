@@ -5,12 +5,12 @@
     You have been walking for some time now, listening to the sounds of the forest, when you come across a little man with a little pack on his back and a silver knife strapped to his leg.
 </p>
 <p>You:</p>
-<form method="post">
+<form asp-controller="Game" asp-action="Index" method="post">
     <div class="form-group">
-        <input type="radio" id="@Model[0].NextStoryboardID1" value="@Model[0].Option1">
+        <input type="radio" name="id" id="@Model[0].NextStoryboardID1" value="@Model[0].Option1">
         <label>@Model[0].Option1</label>
         <br />
-        <input type="radio" id="@Model[0].NextStoryboardID2" value="@Model[0].Option2" />
+        <input type="radio" name="id" id="@Model[0].NextStoryboardID2" value="@Model[0].Option2" />
         <label>@Model[0].Option2</label>
     </div>
     <input type="submit" value="Next" />

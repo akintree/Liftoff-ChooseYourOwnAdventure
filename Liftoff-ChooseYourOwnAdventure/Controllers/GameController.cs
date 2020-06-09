@@ -24,5 +24,25 @@ namespace Liftoff_ChooseYourOwnAdventure.Controllers
             return View(storyboards);
             
         }
+
+        //public IActionResult Story2()
+        //{
+        //    List<Storyboard> storyboards = context.Storyboards.ToList();
+        //    return View(storyboards);
+        //}
+
+        [HttpPost] 
+        public IActionResult Index(int id)
+        {
+                Storyboard storyboard = context.Storyboards.Single(s => s.ID == id);
+                return Redirect("Game/StoryPage/" + storyboard.ID);
+
+        }
+        [HttpGet]
+        public IActionResult StoryPage(int id)
+        {
+            Storyboard storyboard = context.Storyboards.Single(s => s.ID == id);
+            return View(storyboard);
+        }
     }
 }

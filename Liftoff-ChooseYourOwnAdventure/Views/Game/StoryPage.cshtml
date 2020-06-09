@@ -1,0 +1,14 @@
+﻿@model Liftoff_ChooseYourOwnAdventure.Models.Storyboard
+
+<p>@Model.Story</p>
+
+<form asp-controller="Game" asp-action="Index" method="post">
+    <div class="form-group">
+        <input type="radio" id="@Model.NextStoryboardID1" value="@Model.Option1" />
+        <label>@Model.Option1</label>
+    </div>
+    <div class="form-group">
+        <input type="radio" id="@Model.NextStoryboardID2" value="@Model.Option2" />
+        <label>@Model.Option2</label>
+    </div>    
+</form>
