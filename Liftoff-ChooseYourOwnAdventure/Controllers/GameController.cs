@@ -34,10 +34,10 @@ namespace Liftoff_ChooseYourOwnAdventure.Controllers
         [HttpPost] 
         public IActionResult Index(int id)
         {
-                Storyboard storyboard = context.Storyboards.Single(s => s.ID == id);
-                return Redirect("Game/StoryPage/" + storyboard.ID);
-
+            Storyboard nextPage = context.Storyboards.Single(s => s.ID == id);
+            return Redirect("Game/StoryPage/" + nextPage.ID);
         }
+
         [HttpGet]
         public IActionResult StoryPage(int id)
         {

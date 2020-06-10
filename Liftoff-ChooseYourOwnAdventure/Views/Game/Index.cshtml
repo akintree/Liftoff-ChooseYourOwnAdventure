@@ -7,10 +7,10 @@
 <p>You:</p>
 <form asp-controller="Game" asp-action="Index" method="post">
     <div class="form-group">
-        <input type="radio" name="id" id="@Model[0].NextStoryboardID1" value="@Model[0].Option1">
+        <input type="radio" name="id" id="id" value="@Model[0].NextStoryboardID1">
         <label>@Model[0].Option1</label>
         <br />
-        <input type="radio" name="id" id="@Model[0].NextStoryboardID2" value="@Model[0].Option2" />
+        <input type="radio" name="id" id="id" value="@Model[0].NextStoryboardID2" />
         <label>@Model[0].Option2</label>
     </div>
     <input type="submit" value="Next" />
