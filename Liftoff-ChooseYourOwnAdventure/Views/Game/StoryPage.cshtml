@@ -2,13 +2,31 @@
 
 <p>@Model.Story</p>
 
-<form asp-controller="Game" asp-action="Index" method="post">
-    <div class="form-group">
-        <input type="radio" id="id" value="@Model.NextStoryboardID1" />
-        <label>@Model.Option1</label>
-<br />
-        <input type="radio" id="id" value="@Model.NextStoryboardID2" />
-        <label>@Model.Option2</label>
-    </div>
-    <input type="submit" value="Next" />
+@if (Model.NextStoryboardID1 == 0)
+{
+<form asp-controller="Game" asp-action="Index" method="get">
+    <input type="submit" value="Play again?" />
 </form>
+} else
+{
+<form asp-controller="Game" asp-action="Index" method="post">
+
+    @if (Model.Option1 == null)
+    {
+        <input type="hidden" name="id" id="id" value="@Model.NextStoryboardID1" />
+    } else
+    {
+        <div class="form-group">
+            <input type="radio" name="id" id="id" value="@Model.NextStoryboardID1" />
+            <label>@Model.Option1</label>
+            <br />
+            <input type="radio" name="id" id="id" value="@Model.NextStoryboardID2" />
+            <label>@Model.Option2</label>
+        </div>
+    }
+
+    <input type="submit" value="Next" />
+
+</form>
+}
+

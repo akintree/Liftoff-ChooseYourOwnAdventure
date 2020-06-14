@@ -25,12 +25,6 @@ namespace Liftoff_ChooseYourOwnAdventure.Controllers
             
         }
 
-        //public IActionResult Story2()
-        //{
-        //    List<Storyboard> storyboards = context.Storyboards.ToList();
-        //    return View(storyboards);
-        //}
-
         [HttpPost] 
         public IActionResult Index(int id)
         {
