@@ -1,5 +1,10 @@
 ﻿@model Liftoff_ChooseYourOwnAdventure.Models.Storyboard
 
+<audio controls>
+    <source src="~/audio/ftus_forest_ambience_wet_misty_damp_drips_birds_crows_swallows_spring_cyprus_629.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+</audio>
+
 <p>@Model.Story</p>
 
 @if (Model.NextStoryboardID1 == 0)
@@ -29,4 +34,8 @@
 
 </form>
 }
+
+<footer>
+    <p>Sound effects obtained from <a href="https://www.zapsplat.com/">https://www.zapsplat.com/</a></p>
+</footer>
 
