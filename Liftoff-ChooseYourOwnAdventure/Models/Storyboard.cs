@@ -13,5 +13,7 @@ namespace Liftoff_ChooseYourOwnAdventure.Models
         public int NextStoryboardID1 { get; set; }
         public string Option2 { get; set; }
         public int NextStoryboardID2 { get; set; }
+
+        public string Special { get; set; }
     }
 }

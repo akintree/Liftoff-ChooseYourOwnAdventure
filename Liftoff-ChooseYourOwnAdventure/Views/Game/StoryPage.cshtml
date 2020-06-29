@@ -1,41 +1,77 @@
 ﻿@model Liftoff_ChooseYourOwnAdventure.Models.Storyboard
 
-<audio controls>
-    <source src="~/audio/ftus_forest_ambience_wet_misty_damp_drips_birds_crows_swallows_spring_cyprus_629.mp3" type="audio/mp3" />
-    Your browser does not support the audio element.
-</audio>
 
-<p>@Model.Story</p>
+@if(Model.Special == "badEnd"){
+    <body class="badEnd">
+            <p>@Html.Raw(Model.Story)</p>
 
-@if (Model.NextStoryboardID1 == 0)
-{
-<form asp-controller="Game" asp-action="Index" method="get">
-    <input type="submit" value="Play again?" />
-</form>
-} else
-{
-<form asp-controller="Game" asp-action="Index" method="post">
+            @if (Model.NextStoryboardID1 == 0)
+            {
+                <form asp-controller="Game" asp-action="Index" method="get">
+                    <input type="submit" value="Play again?" />
+                </form>
+            }
+            else
+            {
+                <form asp-controller="Game" asp-action="Index" method="post">
 
-    @if (Model.Option1 == null)
+                    @if (Model.Option1 == null)
+                    {
+                        <input type="hidden" name="id" id="id" value="@Model.NextStoryboardID1" />
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <input type="radio" name="id" id="id" value="@Model.NextStoryboardID1" />
+                            <label>@Model.Option1</label>
+                            <br />
+                            <input type="radio" name="id" id="id" value="@Model.NextStoryboardID2" />
+                            <label>@Model.Option2</label>
+                        </div>
+                    }
+
+                    <input type="submit" value="Next" />
+
+                </form>
+            }
+    </body>
+} else {
+<body class="storyPage">
+    <div class="textBorder">
+    <p>@Html.Raw(Model.Story)</p>
+
+    @if (Model.NextStoryboardID1 == 0)
     {
-        <input type="hidden" name="id" id="id" value="@Model.NextStoryboardID1" />
-    } else
-    {
-        <div class="form-group">
-            <input type="radio" name="id" id="id" value="@Model.NextStoryboardID1" />
-            <label>@Model.Option1</label>
-            <br />
-            <input type="radio" name="id" id="id" value="@Model.NextStoryboardID2" />
-            <label>@Model.Option2</label>
-        </div>
+        <form asp-controller="Game" asp-action="Index" method="get">
+            <input type="submit" value="Play again?" />
+        </form>
     }
+    else
+    {
+        <form asp-controller="Game" asp-action="Index" method="post">
 
-    <input type="submit" value="Next" />
+            @if (Model.Option1 == null)
+            {
+                <input type="hidden" name="id" id="id" value="@Model.NextStoryboardID1" />
+            }
+            else
+            {
+                <div class="form-group">
+                    <input type="radio" name="id" id="id" value="@Model.NextStoryboardID1" />
+                    <label>@Model.Option1</label>
+                    <br />
+                    <input type="radio" name="id" id="id" value="@Model.NextStoryboardID2" />
+                    <label>@Model.Option2</label>
+                </div>
+            }
 
-</form>
+            <input type="submit" value="Next" />
+
+        </form>
+    }
+    </div>
+</body>
 }
 
-<footer>
-    <p>Sound effects obtained from <a href="https://www.zapsplat.com/">https://www.zapsplat.com/</a></p>
-</footer>
+    
 

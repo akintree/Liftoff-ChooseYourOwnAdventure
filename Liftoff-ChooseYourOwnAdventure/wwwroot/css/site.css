@@ -7,21 +7,27 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+nav{
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #172535;
+}
+
+a:hover, a:active {
+    color: #5fd4b4;
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: #45606a;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: #45606a;
 }
 
 /* Sticky footer styles
@@ -43,7 +49,7 @@ html {
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .25);
 }
 
 button.accept-policy {
@@ -63,9 +69,56 @@ body {
   margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.storyPage {
+    background-image: url("../images/forest-trees-fog-foggy-5049.jpg");
+}
+
+.storyFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    line-height: 25px; /* Vertically center the text there */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.badEnd {
+    background-image: url('../images/forest-trees-fog-foggy-5049-red.png');
+    color: #fff;
+}
+
+.footerLinks {
+    color: #bed1cc;
+}
+
+.textBorder {
+    padding: 30px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+input[type=submit], input[type=button] {
+    background-color: #667873;
+    color: #fff;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16pt;
+}
+
+h1, h2, h3 {
+    font-family: 'Amatic SC', cursive;
+}
+
+.badEndText {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16pt;
 }
